@@ -194,50 +194,87 @@ export default function Home() {
         </div>
       </section>
       
-      {/* The Stellar Experience / Boutique Showcase */}
-      <section className="py-24 px-6 bg-[#f9f9f9] overflow-hidden">
+      {/* Boutique Heritage Showcase - Immersive Redesign */}
+      <section className="py-32 px-6 bg-white overflow-hidden relative">
+        <div className="absolute top-0 right-0 w-1/2 h-full bg-[#f9f9f9] -z-10" />
+        
         <div className="max-w-7xl mx-auto">
-          <FadeIn className="text-center mb-20 space-y-4">
-            <span className="font-oswald text-gold text-xs font-bold tracking-[0.4em] uppercase">Private & Exclusive</span>
-            <h2 className="font-oswald text-4xl md:text-5xl font-bold uppercase text-[#1d2c48] tracking-widest">
-              The Stellar <span className="text-gold">Experience</span>
-            </h2>
-          </FadeIn>
-          
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
-            {[
-              { 
-                name: "The Vault", 
-                desc: "Explore our most exclusive, rare, and high-complication timepieces from worldwide private collections.",
-                label: "Curated Rare Pieces"
-              },
-              { 
-                name: "The Atelier", 
-                desc: "Our master watchmakers provide intensive authentication and heritage restoration for every timepiece.",
-                label: "Expert Authentication"
-              },
-              { 
-                name: "The Private Salon", 
-                desc: "Book a personalized concierge session in our private consultation room for a refined viewing experience.",
-                label: "Concierge Consult"
-              }
-            ].map((feature, i) => (
-              <FadeIn key={feature.name} delay={i * 0.1} className="group relative aspect-[4/5] overflow-hidden cursor-pointer bg-white border border-gray-100 shadow-sm">
-                <div className="absolute inset-0 bg-gray-50 transition-transform duration-700 group-hover:scale-105">
-                   <ImagePlaceholder text={feature.name} className="opacity-10 scale-150" />
-                </div>
-                <div className="absolute inset-0 flex flex-col justify-end p-8 bg-gradient-to-t from-white via-white/80 to-transparent">
-                  <span className="font-oswald text-gold text-[10px] font-bold tracking-[0.3em] uppercase mb-2">{feature.label}</span>
-                  <h3 className="font-oswald text-2xl font-bold text-[#1d2c48] uppercase tracking-widest mb-4">{feature.name}</h3>
-                  <p className="font-poppins text-gray-500 text-sm leading-relaxed mb-6 transform translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-500">
-                    {feature.desc}
-                  </p>
-                  <div className="w-10 h-1 bg-gold transition-all duration-500 group-hover:w-full" />
-                </div>
-                <div className="absolute inset-4 border border-gold/0 group-hover:border-gold/10 transition-all duration-500 pointer-events-none" />
-              </FadeIn>
-            ))}
+          <div className="flex flex-col lg:flex-row gap-16 items-start mb-20">
+            <FadeIn className="lg:w-1/3">
+              <span className="font-oswald text-gold text-xs font-bold tracking-[0.5em] uppercase mb-4 block">Our Heritage</span>
+              <h2 className="font-oswald text-5xl md:text-6xl font-bold uppercase text-[#1d2c48] leading-[0.9] tracking-tighter">
+                The <span className="text-gold">Boutique</span> <br /> Destination
+              </h2>
+            </FadeIn>
+            <FadeIn className="lg:w-2/3 pt-4">
+              <p className="font-poppins text-gray-500 text-lg leading-relaxed max-w-xl">
+                More than a gallery, our Manila boutique is a sanctuary for horological enthusiasts. Experience a world where timeless transition meets modern luxury service.
+              </p>
+            </FadeIn>
           </div>
+          
+          <div className="grid grid-cols-1 md:grid-cols-12 gap-6 h-[800px] md:h-[600px]">
+            {/* Large Featured Card: The Master's Vault */}
+            <FadeIn className="md:col-span-8 md:row-span-2 group relative overflow-hidden bg-[#1d2c48] cursor-pointer">
+              <div className="absolute inset-0 z-0">
+                <ImagePlaceholder text="THE VAULT" className="opacity-10 scale-150 rotate-[-5deg]" />
+              </div>
+              <div className="absolute inset-0 bg-gradient-to-t from-[#1d2c48] via-transparent to-transparent opacity-60" />
+              <div className="absolute inset-0 border border-white/5 m-4" />
+              
+              <div className="absolute inset-0 flex flex-col justify-end p-12 z-10">
+                <span className="font-oswald text-gold text-xs font-bold tracking-[0.4em] uppercase mb-4">Established Curator</span>
+                <h3 className="font-oswald text-4xl md:text-5xl font-bold text-white uppercase tracking-wider mb-6">The Master&apos;s <span className="text-gold">Vault</span></h3>
+                <p className="font-poppins text-white/60 text-sm max-w-md mb-8 leading-loose tracking-wide">
+                  Home to our most significant acquisitions. A revolving collection of historically important timepieces, from pre-daytona chronographs to initial grand complications.
+                </p>
+                <div className="flex items-center gap-4 group/btn">
+                  <span className="w-12 h-px bg-gold group-hover:w-24 transition-all duration-500" />
+                  <span className="font-oswald text-[10px] font-bold text-white tracking-[0.3em] uppercase">Private Discovery</span>
+                </div>
+              </div>
+            </FadeIn>
+
+            {/* Top Right Card: Artisanal Restoration */}
+            <FadeIn delay={0.1} className="md:col-span-4 group relative overflow-hidden bg-white border border-gray-100 cursor-pointer shadow-sm">
+               <div className="absolute inset-0 p-8 flex flex-col justify-between">
+                  <div className="space-y-4">
+                    <span className="font-oswald text-gold text-[10px] font-bold tracking-[0.3em] uppercase">Authenticity Lab</span>
+                    <h4 className="font-oswald text-2xl font-bold text-[#1d2c48] uppercase">Artisanal <br /> Restoration</h4>
+                  </div>
+                  <div className="relative h-24 w-full opacity-20 transform group-hover:scale-110 transition-transform duration-700">
+                    <ImagePlaceholder text="LAB" />
+                  </div>
+                  <p className="font-poppins text-gray-400 text-xs leading-relaxed opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                    Preserving the soul of every movement through master-class techniques.
+                  </p>
+               </div>
+               <div className="absolute top-0 right-0 p-8">
+                  <div className="w-2 h-2 rounded-full bg-gold animate-pulse" />
+               </div>
+            </FadeIn>
+
+            {/* Bottom Right Card: Bespoke Concierge */}
+            <FadeIn delay={0.2} className="md:col-span-4 group relative overflow-hidden bg-[#f0ae22] cursor-pointer">
+               <div className="absolute inset-0 p-8 flex flex-col justify-center text-center">
+                  <h4 className="font-oswald text-3xl font-bold text-white uppercase tracking-tighter leading-none mb-2">Bespoke <br /> Concierge</h4>
+                  <div className="w-8 h-px bg-white mx-auto my-6" />
+                  <p className="font-poppins text-white/90 text-[10px] font-bold uppercase tracking-[0.2em]">Global Acquisition Service</p>
+               </div>
+               <div className="absolute inset-0 bg-white translate-y-full group-hover:translate-y-0 transition-transform duration-500" />
+               <div className="absolute inset-0 p-8 flex flex-col justify-center text-center opacity-0 group-hover:opacity-100 transition-all duration-500 delay-100">
+                  <p className="font-poppins text-[#1d2c48] text-sm leading-relaxed px-4">
+                    Sourcing specific references from our global network of private collectors and auction houses.
+                  </p>
+                  <span className="font-oswald text-gold text-[10px] font-bold uppercase tracking-[0.3em] mt-6">Inquire Now</span>
+               </div>
+            </FadeIn>
+          </div>
+        </div>
+
+        {/* Floating Decorative Text for Background Depth */}
+        <div className="absolute left-[-5%] bottom-[10%] font-oswald text-[15vw] font-black text-black/[0.02] select-none pointer-events-none uppercase">
+          Stellar
         </div>
       </section>
 
