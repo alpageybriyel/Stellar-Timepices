@@ -194,31 +194,47 @@ export default function Home() {
         </div>
       </section>
       
-      {/* Categories / Top Brands Section */}
-      <section className="py-24 px-6 bg-white overflow-hidden">
+      {/* The Stellar Experience / Boutique Showcase */}
+      <section className="py-24 px-6 bg-[#f9f9f9] overflow-hidden">
         <div className="max-w-7xl mx-auto">
           <FadeIn className="text-center mb-20 space-y-4">
-            <span className="font-oswald text-gold text-xs font-bold tracking-[0.4em] uppercase">The World&apos;s Finest</span>
+            <span className="font-oswald text-gold text-xs font-bold tracking-[0.4em] uppercase">Private & Exclusive</span>
             <h2 className="font-oswald text-4xl md:text-5xl font-bold uppercase text-[#1d2c48] tracking-widest">
-              Top <span className="text-gold">Brands</span>
+              The Stellar <span className="text-gold">Experience</span>
             </h2>
           </FadeIn>
           
           <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
             {[
-              { name: "Rolex", desc: "The Crown of Horology" },
-              { name: "Patek Philippe", desc: "Generational Masterpieces" },
-              { name: "Audemars Piguet", desc: "Bold Innovation" }
-            ].map((brand, i) => (
-              <FadeIn key={brand.name} delay={i * 0.1} className="group relative aspect-[4/5] overflow-hidden cursor-pointer">
-                <div className="absolute inset-0 bg-gray-100 transition-transform duration-700 group-hover:scale-105">
-                   <ImagePlaceholder text={brand.name} className="opacity-40" />
+              { 
+                name: "The Vault", 
+                desc: "Explore our most exclusive, rare, and high-complication timepieces from worldwide private collections.",
+                label: "Curated Rare Pieces"
+              },
+              { 
+                name: "The Atelier", 
+                desc: "Our master watchmakers provide intensive authentication and heritage restoration for every timepiece.",
+                label: "Expert Authentication"
+              },
+              { 
+                name: "The Private Salon", 
+                desc: "Book a personalized concierge session in our private consultation room for a refined viewing experience.",
+                label: "Concierge Consult"
+              }
+            ].map((feature, i) => (
+              <FadeIn key={feature.name} delay={i * 0.1} className="group relative aspect-[4/5] overflow-hidden cursor-pointer bg-white border border-gray-100 shadow-sm">
+                <div className="absolute inset-0 bg-gray-50 transition-transform duration-700 group-hover:scale-105">
+                   <ImagePlaceholder text={feature.name} className="opacity-10 scale-150" />
                 </div>
-                <div className="absolute inset-x-0 bottom-0 p-8 bg-gradient-to-t from-[#1d2c48]/90 to-transparent translate-y-4 group-hover:translate-y-0 transition-all duration-500">
-                  <h3 className="font-oswald text-2xl font-bold text-white uppercase tracking-widest mb-2">{brand.name}</h3>
-                  <p className="text-gold font-poppins text-xs font-bold uppercase tracking-widest opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-100">{brand.desc}</p>
+                <div className="absolute inset-0 flex flex-col justify-end p-8 bg-gradient-to-t from-white via-white/80 to-transparent">
+                  <span className="font-oswald text-gold text-[10px] font-bold tracking-[0.3em] uppercase mb-2">{feature.label}</span>
+                  <h3 className="font-oswald text-2xl font-bold text-[#1d2c48] uppercase tracking-widest mb-4">{feature.name}</h3>
+                  <p className="font-poppins text-gray-500 text-sm leading-relaxed mb-6 transform translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-500">
+                    {feature.desc}
+                  </p>
+                  <div className="w-10 h-1 bg-gold transition-all duration-500 group-hover:w-full" />
                 </div>
-                <div className="absolute inset-4 border border-white/0 group-hover:border-white/10 transition-all duration-500 pointer-events-none" />
+                <div className="absolute inset-4 border border-gold/0 group-hover:border-gold/10 transition-all duration-500 pointer-events-none" />
               </FadeIn>
             ))}
           </div>
