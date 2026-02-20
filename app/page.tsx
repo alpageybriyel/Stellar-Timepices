@@ -339,9 +339,9 @@ export default function Home() {
         <div className="max-w-7xl mx-auto text-center">
           <FadeIn>
             <h3 className="font-oswald text-4xl md:text-7xl font-bold text-[#1d2c48] uppercase leading-[0.9] tracking-tighter max-w-5xl mx-auto">
-              Time is the ultimate <span className="text-gold">luxury</span>. We specialize in the <span className="underline decoration-gold underline-offset-[12px] decoration-4">extraordinary</span>.
+              Curating the <span className="text-gold">Extraordinary</span>. Establishing Trust Across <span className="underline decoration-gold underline-offset-[12px] decoration-4">80K+</span> Enthusiasts.
             </h3>
-            <p className="mt-12 font-poppins text-gray-400 uppercase tracking-[0.4em] text-xs font-bold font-semibold">StellarTime &bull; Est. 1992 &bull; Geneva &bull; Manila</p>
+            <p className="mt-12 font-poppins text-gray-400 uppercase tracking-[0.4em] text-xs font-bold">Stellar Timepieces &bull; Buy &bull; Sell &bull; Trade &bull; Consign &bull; General Trias, Cavite</p>
           </FadeIn>
         </div>
       </section>
@@ -405,7 +405,7 @@ export default function Home() {
             </h2>
             <div className="space-y-6 text-gray-300 text-lg leading-relaxed">
               <p>
-                At StellarTime, we believe that a watch is more than just a tool to tell time—it is a piece of history, a work of art, and a legacy to be passed down.
+                At Stellar Timepieces, we believe that a watch is more than just a tool to tell time—it is a piece of history, a work of art, and a legacy to be passed down.
               </p>
               <p>
                 Every timepiece in our collection undergoes a rigorous inspection process by our master watchmakers to ensure 100% authenticity and optimal performance.
@@ -414,12 +414,12 @@ export default function Home() {
             
             <div className="grid grid-cols-2 gap-8 pt-8">
               <div>
-                <h3 className="text-[#f0ae22] font-oswald text-4xl font-bold">500+</h3>
-                <p className="text-sm uppercase tracking-wider mt-2">Watches Sold</p>
+                <h3 className="text-[#f0ae22] font-oswald text-4xl font-bold">80K+</h3>
+                <p className="text-sm uppercase tracking-wider mt-2">Community Members</p>
               </div>
               <div>
                 <h3 className="text-[#f0ae22] font-oswald text-4xl font-bold">100%</h3>
-                <p className="text-sm uppercase tracking-wider mt-2">Authentic</p>
+                <p className="text-sm uppercase tracking-wider mt-2">Authentic Provenance</p>
               </div>
             </div>
 
