@@ -208,7 +208,7 @@ export default function Home() {
             </FadeIn>
             <FadeIn className="lg:w-2/3 pt-4">
               <p className="font-poppins text-gray-500 text-lg leading-relaxed max-w-xl">
-                More than a gallery, our Manila boutique is a sanctuary for horological enthusiasts. Experience a world where timeless transition meets modern luxury service.
+                Located in the heart of <span className="text-[#1d2c48] font-bold">General Trias, Cavite</span>, our boutique is a sanctuary for over <span className="text-[#1d2c48] font-bold">80,000+ horological enthusiasts</span>. Experience a world where timeless tradition meets modern luxury service.
               </p>
             </FadeIn>
           </div>

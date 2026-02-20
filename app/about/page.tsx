@@ -38,10 +38,10 @@ export default function AboutPage() {
             </h2>
             <div className="w-16 h-1 bg-[#f0ae22]" />
             <p className="text-[#1d2c48]/70 leading-relaxed font-poppins">
-              StellarTime was founded with a singular mission: to provide collectors and enthusiasts with access to the world&apos;s most exquisite timepieces. We believe that a luxury watch is not merely an accessory, but a testament to human ingenuity and artistry.
+              Stellar Timepieces was founded with a singular mission: to provide collectors and enthusiasts with access to the world&apos;s most exquisite timepieces. Based in General Trias, Cavite, we have grown into a community of over 80,000 horological passionates who believe that a luxury watch is a testament to human ingenuity.
             </p>
             <p className="text-[#1d2c48]/70 leading-relaxed font-poppins">
-              Our team of expert horologists rigorously inspects every piece that enters our vault, ensuring that authenticity and quality are never compromised.
+              Our team of expert horologists rigorously inspects every piece that enters our vault, ensuring that authenticity and quality are never compromised for our growing global family.
             </p>
           </div>
           <div className="relative aspect-square md:aspect-[4/5] bg-gray-100">
