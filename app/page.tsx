@@ -22,6 +22,7 @@ const HERO_SLIDES = [
     description: "Discover the limited edition Submariner Series. A testament to eighty years of horological pursuit and marine exploration.",
     model: "SUB-MK II",
     color: "gold",
+    image: "https://drive.google.com/uc?id=1-OAHRAnDRjIb6pWt64noEyQHg3NhI1b-",
     imageText: "Masterpiece"
   },
   {
@@ -32,6 +33,7 @@ const HERO_SLIDES = [
     description: "Experience the pinnacle of mechanical engineering. Each movement is a masterpiece of precision and artisanal craftsmanship.",
     model: "NAUT-57 series",
     color: "gold",
+    image: "https://drive.google.com/uc?id=1U8OAjSSG-3oYrlK7ACIzqQWtxjVTklqH",
     imageText: "Innovation"
   },
   {
@@ -42,6 +44,7 @@ const HERO_SLIDES = [
     description: "Where heritage meets modern innovation. Defining the future of luxury timepieces through bold design and technical excellence.",
     model: "OAK-PRIME",
     color: "gold",
+    image: "https://drive.google.com/uc?id=1hYCaPwT5Wyu22RppjOump7KCoXyoNOEv",
     imageText: "Excellence"
   }
 ]
@@ -160,15 +163,29 @@ export default function Home() {
                 <div className="absolute inset-0 flex items-center justify-center">
                    {/* Large watch visualization */}
                    <div className="relative h-[80%] w-[80%] drop-shadow-[0_35px_35px_rgba(0,0,0,0.5)]">
-                      <ImagePlaceholder text={slide.imageText} className="opacity-10 bg-transparent border-none scale-150 rotate-[-15deg]" />
-                      {/* This would be the actual watch image in a real implementation */}
-                      <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-                         <div className="w-3/4 aspect-[1/2] border border-white/5 rounded-full rotate-12 flex items-center justify-center">
-                            <div className="w-full aspect-square bg-[#1d2c48]/40 backdrop-blur-3xl rounded-full border border-white/10 flex items-center justify-center">
-                               <div className="text-gold font-oswald text-[12vw] font-black opacity-10 select-none">2026</div>
-                            </div>
-                         </div>
-                      </div>
+                      {slide.image ? (
+                        <div className="relative w-full h-full flex items-center justify-center">
+                          <Image
+                            src={slide.image}
+                            alt={slide.model}
+                            fill
+                            className="object-contain drop-shadow-[0_35px_35px_rgba(0,0,0,0.6)]"
+                            priority
+                            unoptimized
+                          />
+                        </div>
+                      ) : (
+                        <>
+                          <ImagePlaceholder text={slide.imageText} className="opacity-10 bg-transparent border-none scale-150 rotate-[-15deg]" />
+                          <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+                             <div className="w-3/4 aspect-[1/2] border border-white/5 rounded-full rotate-12 flex items-center justify-center">
+                                <div className="w-full aspect-square bg-[#1d2c48]/40 backdrop-blur-3xl rounded-full border border-white/10 flex items-center justify-center">
+                                   <div className="text-gold font-oswald text-[12vw] font-black opacity-10 select-none">2026</div>
+                                </div>
+                             </div>
+                          </div>
+                        </>
+                      )}
                    </div>
                 </div>
                 
