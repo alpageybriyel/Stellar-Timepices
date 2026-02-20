@@ -213,7 +213,7 @@ export default function Home() {
             </FadeIn>
           </div>
           
-          <div className="grid grid-cols-1 md:grid-cols-12 gap-6 h-[800px] md:h-[600px]">
+          <div className="grid grid-cols-1 md:grid-cols-12 gap-6 h-[1000px] md:h-[800px]">
             {/* Large Featured Card: The Master's Vault */}
             <FadeIn className="md:col-span-8 md:row-span-2 group relative overflow-hidden bg-[#1d2c48] cursor-pointer">
               <div className="absolute inset-0 z-0">
@@ -237,18 +237,26 @@ export default function Home() {
 
             {/* Top Right Card: Artisanal Restoration */}
             <FadeIn delay={0.1} className="md:col-span-4 group relative overflow-hidden bg-white border border-gray-100 cursor-pointer shadow-sm">
-               <div className="absolute inset-0 p-8 flex flex-col justify-between">
-                  <div className="space-y-4">
-                    <span className="font-oswald text-gold text-[10px] font-bold tracking-[0.3em] uppercase">Authenticity Lab</span>
-                    <h4 className="font-oswald text-2xl font-bold text-[#1d2c48] uppercase">The Authenticity <br /> Lab</h4>
+                <div className="absolute inset-0 p-10 flex flex-col">
+                  <div className="mb-6">
+                    <span className="font-oswald text-gold text-[10px] font-bold tracking-[0.3em] uppercase block mb-2">Authenticity Lab</span>
+                    <h4 className="font-oswald text-3xl font-bold text-[#1d2c48] uppercase leading-none">The Authenticity <br /> Lab</h4>
                   </div>
-                  <div className="relative h-24 w-full opacity-20 transform group-hover:scale-110 transition-transform duration-700">
+                  
+                  <div className="relative h-20 w-full opacity-[0.05] mb-6 flex-shrink-0">
                     <ImagePlaceholder text="LAB" />
                   </div>
-                  <p className="font-poppins text-gray-400 text-[10px] leading-relaxed opacity-0 group-hover:opacity-100 transition-opacity duration-500 mb-2">
-                    Preservation is an art. Our restoration specialists honor original craftsmanship with meticulous attention to detail — safeguarding both performance and provenance. From movement servicing to sympathetic refinishing, authenticity remains our uncompromising standard.
-                  </p>
-                  <span className="font-oswald text-[10px] font-bold text-[#1d2c48] tracking-widest uppercase mt-auto">Learn About Our Process →</span>
+
+                  <div className="relative flex-grow min-h-0 flex flex-col justify-between">
+                    <p className="font-poppins text-gray-400 text-xs leading-relaxed group-hover:text-gray-500 transition-colors duration-500 max-w-sm">
+                      Preservation is an art. Our restoration specialists honor original craftsmanship with meticulous attention to detail — safeguarding both performance and provenance. From movement servicing to sympathetic refinishing, authenticity remains our uncompromising standard.
+                    </p>
+                    
+                    <div className="mt-8 flex items-center gap-4 group/cta">
+                      <span className="font-oswald text-[11px] font-bold text-[#1d2c48] tracking-widest uppercase">Learn About Our Process →</span>
+                      <div className="w-8 h-px bg-gold flex-shrink-0 group-hover/cta:w-16 transition-all duration-500" />
+                    </div>
+                  </div>
                </div>
                <div className="absolute top-0 right-0 p-8">
                   <div className="w-2 h-2 rounded-full bg-gold animate-pulse" />
