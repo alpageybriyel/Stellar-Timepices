@@ -226,11 +226,11 @@ export default function Home() {
                 <span className="font-oswald text-gold text-xs font-bold tracking-[0.4em] uppercase mb-4">Established Curator</span>
                 <h3 className="font-oswald text-4xl md:text-5xl font-bold text-white uppercase tracking-wider mb-6">The Master&apos;s <span className="text-gold">Vault</span></h3>
                 <p className="font-poppins text-white/60 text-sm max-w-md mb-8 leading-loose tracking-wide">
-                  Home to our most significant acquisitions. A revolving collection of historically important timepieces, from pre-daytona chronographs to initial grand complications.
+                  Home to our most distinguished acquisitions — a rotating collection of rare, investment-grade, and historically significant timepieces. From coveted sports icons to grand complications, each piece is hand-selected for provenance, condition, and enduring value.
                 </p>
                 <div className="flex items-center gap-4 group/btn">
                   <span className="w-12 h-px bg-gold group-hover:w-24 transition-all duration-500" />
-                  <span className="font-oswald text-[10px] font-bold text-white tracking-[0.3em] uppercase">Private Discovery</span>
+                  <span className="font-oswald text-[10px] font-bold text-white tracking-[0.3em] uppercase">Discover the Collection →</span>
                 </div>
               </div>
             </FadeIn>
@@ -240,14 +240,15 @@ export default function Home() {
                <div className="absolute inset-0 p-8 flex flex-col justify-between">
                   <div className="space-y-4">
                     <span className="font-oswald text-gold text-[10px] font-bold tracking-[0.3em] uppercase">Authenticity Lab</span>
-                    <h4 className="font-oswald text-2xl font-bold text-[#1d2c48] uppercase">Artisanal <br /> Restoration</h4>
+                    <h4 className="font-oswald text-2xl font-bold text-[#1d2c48] uppercase">The Authenticity <br /> Lab</h4>
                   </div>
                   <div className="relative h-24 w-full opacity-20 transform group-hover:scale-110 transition-transform duration-700">
                     <ImagePlaceholder text="LAB" />
                   </div>
-                  <p className="font-poppins text-gray-400 text-xs leading-relaxed opacity-0 group-hover:opacity-100 transition-opacity duration-500">
-                    Preserving the soul of every movement through master-class techniques.
+                  <p className="font-poppins text-gray-400 text-[10px] leading-relaxed opacity-0 group-hover:opacity-100 transition-opacity duration-500 mb-2">
+                    Preservation is an art. Our restoration specialists honor original craftsmanship with meticulous attention to detail — safeguarding both performance and provenance. From movement servicing to sympathetic refinishing, authenticity remains our uncompromising standard.
                   </p>
+                  <span className="font-oswald text-[10px] font-bold text-[#1d2c48] tracking-widest uppercase mt-auto">Learn About Our Process →</span>
                </div>
                <div className="absolute top-0 right-0 p-8">
                   <div className="w-2 h-2 rounded-full bg-gold animate-pulse" />
