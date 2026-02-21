@@ -47,10 +47,10 @@ export default function ContactPage() {
                 <MapPin className="w-6 h-6 text-[#1d2c48]" />
               </div>
               <div>
-                <h3 className="font-oswald font-bold uppercase text-[#1d2c48] mb-1">Address</h3>
+                <h3 className="font-oswald font-bold uppercase text-[#1d2c48] mb-1">Location</h3>
                 <p className="text-[#1d2c48]/70 text-sm font-medium">
-                  123 Luxury Avenue, Suite 500<br />
-                  New York, NY 10022
+                  General Trias, Cavite<br />
+                  Philippines
                 </p>
               </div>
             </div>
@@ -60,9 +60,9 @@ export default function ContactPage() {
                 <Phone className="w-6 h-6 text-[#1d2c48]" />
               </div>
               <div>
-                <h3 className="font-oswald font-bold uppercase text-[#1d2c48] mb-1">Phone</h3>
+                <h3 className="font-oswald font-bold uppercase text-[#1d2c48] mb-1">Direct</h3>
                 <p className="text-[#1d2c48]/70 text-sm font-medium">
-                  +1 (212) 555-0123
+                  Message us on Facebook for immediate assistance.
                 </p>
               </div>
             </div>
@@ -72,9 +72,9 @@ export default function ContactPage() {
                 <Mail className="w-6 h-6 text-[#1d2c48]" />
               </div>
               <div>
-                <h3 className="font-oswald font-bold uppercase text-[#1d2c48] mb-1">Email</h3>
+                <h3 className="font-oswald font-bold uppercase text-[#1d2c48] mb-1">Inquiries</h3>
                 <p className="text-[#1d2c48]/70 text-sm font-medium">
-                  concierge@stellartime.com
+                  stellartimepieces@gmail.com
                 </p>
               </div>
             </div>
@@ -84,28 +84,27 @@ export default function ContactPage() {
                 <Clock className="w-6 h-6 text-[#1d2c48]" />
               </div>
               <div>
-                <h3 className="font-oswald font-bold uppercase text-[#1d2c48] mb-1">Hours</h3>
+                <h3 className="font-oswald font-bold uppercase text-[#1d2c48] mb-1">Inquiry Hours</h3>
                 <p className="text-[#1d2c48]/70 text-sm font-medium">
-                  Mon - Fri: 10:00 AM - 7:00 PM<br />
-                  Sat: 11:00 AM - 6:00 PM<br />
-                  Sun: By Appointment
+                  Mon - Sun: 9:00 AM - 10:00 PM<br />
+                  Appointments Recommended
                 </p>
               </div>
             </div>
           </div>
 
           <div className="pt-8 space-y-6">
-            <h3 className="font-oswald text-xl font-bold text-[#1d2c48] uppercase">Follow Our Journey</h3>
+            <h3 className="font-oswald text-xl font-bold text-[#1d2c48] uppercase">Connect With Us</h3>
             <div className="flex gap-4">
-                <a href="https://www.facebook.com/profile.php?id=61563499544853" target="_blank" rel="noopener noreferrer" className="w-12 h-12 border border-gray-100 flex items-center justify-center text-[#1d2c48] hover:text-gold hover:border-gold transition-all duration-300">
+                <a href="https://www.facebook.com/profile.php?id=61563499544853" target="_blank" rel="noopener noreferrer" className="w-12 h-12 border border-black/5 flex items-center justify-center text-[#1d2c48] hover:text-gold hover:border-gold transition-all duration-300">
                     <Facebook className="w-5 h-5" />
                 </a>
-                <a href="https://www.instagram.com/stellartimepieces_/" target="_blank" rel="noopener noreferrer" className="w-12 h-12 border border-gray-100 flex items-center justify-center text-[#1d2c48] hover:text-gold hover:border-gold transition-all duration-300">
+                <a href="https://www.instagram.com/stellartimepieces_/" target="_blank" rel="noopener noreferrer" className="w-12 h-12 border border-black/5 flex items-center justify-center text-[#1d2c48] hover:text-gold hover:border-gold transition-all duration-300">
                     <Instagram className="w-5 h-5" />
                 </a>
-                <a href="https://www.tiktok.com/@stellartimepieces" target="_blank" rel="noopener noreferrer" className="w-12 h-12 border border-gray-100 flex items-center justify-center text-[#1d2c48] hover:text-gold hover:border-gold transition-all duration-300">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-5 h-5">
-                        <path d="M9 12a4 4 0 1 0 4 4V4a5 5 0 0 0 5 5" />
+                <a href="https://www.tiktok.com/@stellartimepieces" target="_blank" rel="noopener noreferrer" className="w-12 h-12 border border-black/5 flex items-center justify-center text-[#1d2c48] hover:text-gold hover:border-gold transition-all duration-300">
+                    <svg viewBox="0 0 24 24" fill="currentColor" className="w-5 h-5">
+                      <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1.04-.1z" />
                     </svg>
                 </a>
             </div>

@@ -4,9 +4,13 @@ import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import Image from "next/image"
 
+import { PreFooterCTA } from "./PreFooterCTA"
+
 export function Footer() {
   return (
-    <footer className="bg-[#1d2c48] text-white pt-24 pb-12 border-t border-white/5">
+    <>
+      <PreFooterCTA />
+      <footer className="bg-[#1d2c48] text-white pt-24 pb-12 border-t border-white/5">
       <div className="mx-auto max-w-7xl px-6 grid grid-cols-1 md:grid-cols-12 gap-16">
         {/* Brand */}
         <div className="md:col-span-4 space-y-8">
@@ -106,6 +110,7 @@ export function Footer() {
           <Link href="#" className="text-white/50 hover:text-white text-[10px] font-medium tracking-[0.2em] uppercase transition-colors">Terms</Link>
         </div>
       </div>
-    </footer>
+      </footer>
+    </>
   )
 }
