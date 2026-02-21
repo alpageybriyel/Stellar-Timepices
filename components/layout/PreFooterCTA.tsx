@@ -64,7 +64,7 @@ export function PreFooterCTA() {
             rel="noopener noreferrer"
             className="w-full sm:w-auto"
           >
-            <Button variant="outline" className="border-[#1d2c48] text-[#1d2c48] hover:bg-[#1d2c48] hover:text-white h-16 px-12 font-oswald text-xs font-bold tracking-[0.3em] uppercase transition-all duration-500 rounded-none w-full">
+            <Button className="bg-[#f0ae22] text-white hover:bg-[#1d2c48] h-16 px-12 font-oswald text-xs font-bold tracking-[0.3em] uppercase transition-all duration-500 rounded-none w-full">
               <MessageCircle className="w-4 h-4 mr-2" />
               SAY HELLO ON MESSENGER
             </Button>

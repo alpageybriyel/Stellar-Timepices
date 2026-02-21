@@ -230,7 +230,7 @@ export default function Home() {
             </FadeIn>
           </div>
           
-          <div className="grid grid-cols-1 md:grid-cols-12 gap-6 h-[1000px] md:h-[800px]">
+          <div className="grid grid-cols-1 md:grid-cols-12 gap-6 h-auto md:h-[800px]">
             {/* Large Featured Card: The Master's Vault */}
             <FadeIn className="md:col-span-8 md:row-span-2 group relative overflow-hidden bg-[#1d2c48] cursor-pointer">
               <div className="absolute inset-0 z-0">
@@ -387,7 +387,7 @@ export default function Home() {
       <section className="bg-[#1d2c48] text-white py-24 px-6">
         <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
           <FadeIn direction="right">
-            <div className="relative h-[600px] w-full border border-[#f0ae22] p-4">
+            <div className="relative h-[400px] md:h-[600px] w-full border border-[#f0ae22] p-4">
                <div className="relative h-full w-full bg-gray-800 overflow-hidden">
                   <Image
                     src="/w1.jpg"
