@@ -61,7 +61,7 @@ export default function AboutPage() {
                
                <div className="relative aspect-[4/5] border-2 border-gray-100 p-3 group-hover:border-[#f0ae22] transition-colors duration-700">
                   <Image 
-                    src="/chad-salita.jpg"
+                    src="/chad.jpg"
                     alt="Chad Allen Salita - Founder of Stellar Timepieces"
                     fill
                     className="object-cover grayscale hover:grayscale-0 transition-all duration-700"
@@ -122,6 +122,8 @@ export default function AboutPage() {
       <VideoShowcase 
         title="Experience the Curation" 
         subtitle="Inside the Stellar Vault with Chad Allen Salita"
+        videoUrl="https://www.youtube.com/watch?v=0OQS68dF5f0"
+        autoplay={true}
       />
 
       {/* Philosophy Section */}
