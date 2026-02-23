@@ -19,8 +19,7 @@ function ShopContent() {
   // Filter State
   const [selectedBrands, setSelectedBrands] = React.useState<string[]>(brandParam ? [brandParam] : [])
   const [searchQuery, setSearchQuery] = React.useState("")
-  const [minPrice, setMinPrice] = React.useState("")
-  const [maxPrice, setMaxPrice] = React.useState("")
+  const [priceRange, setPriceRange] = React.useState([0, 20000000])
   const [sortBy, setSortBy] = React.useState("featured")
   
   const brands = Array.from(new Set(watches.map(w => w.brand))).sort()
@@ -40,8 +39,7 @@ function ShopContent() {
 
       // Price Filter
       const price = watch.price
-      if (minPrice !== "" && !isNaN(parseFloat(minPrice)) && price < parseFloat(minPrice)) return false
-      if (maxPrice !== "" && !isNaN(parseFloat(maxPrice)) && price > parseFloat(maxPrice)) return false
+      if (price < priceRange[0] || price > priceRange[1]) return false
 
       return true
     })
@@ -64,7 +62,7 @@ function ShopContent() {
     }
 
     return result
-  }, [selectedBrands, searchQuery, minPrice, maxPrice, sortBy])
+  }, [selectedBrands, searchQuery, priceRange, sortBy])
 
   // Update selectedBrands when URL param changes
   React.useEffect(() => {
@@ -82,37 +80,48 @@ function ShopContent() {
   const resetFilters = () => {
     setSelectedBrands([])
     setSearchQuery("")
-    setMinPrice("")
-    setMaxPrice("")
+    setPriceRange([0, 20000000])
     setSortBy("featured")
   }
 
   return (
-    <div className="min-h-screen bg-white flex flex-col">
+    <div className="min-h-screen bg-background flex flex-col">
       <Header />
       
-      {/* Page Header */}
-      <div className="bg-[#1d2c48] text-white pt-40 pb-20 px-6 relative overflow-hidden">
-        <div className="absolute top-0 right-0 w-1/4 h-full bg-white/5 skew-x-12 transform translate-x-1/2" />
-        <div className="max-w-7xl mx-auto relative z-10">
-          <FadeIn direction="down">
-            <span className="font-oswald text-gold text-xs font-bold tracking-[0.4em] uppercase mb-4 block">Collection 2026</span>
-            <h1 className="font-oswald text-5xl md:text-7xl font-bold uppercase tracking-widest leading-none">
-              Shop <span className="text-gold">Time</span>
-            </h1>
-            <p className="mt-6 text-white/50 max-w-2xl font-poppins tracking-wide leading-relaxed">
-              Explore our curated selection of horological masterpieces. Each piece represents a legacy of precision and timeless elegance.
-            </p>
-          </FadeIn>
+      {/* Search & Filter Hero */}
+      <div className="bg-background border-b border-border pt-48 pb-12 text-foreground">
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="flex flex-col md:flex-row justify-between items-end gap-8 text-foreground">
+            <div className="space-y-4">
+               <h1 className="font-serif text-5xl md:text-7xl tracking-tight text-foreground">
+                 The <span className="italic">Collections</span>
+               </h1>
+               <div className="flex items-center gap-4 text-muted-foreground font-oswald text-[10px] tracking-[0.3em] font-bold uppercase">
+                 <span>{filteredAndSortedWatches.length} Timepieces</span>
+                 <div className="w-1 h-1 bg-accent rounded-full" />
+                 <span>General Trias, Cavite</span>
+               </div>
+            </div>
+
+            <div className="relative w-full md:w-96">
+              <input
+                type="text"
+                placeholder="Search references..."
+                className="w-full bg-card border border-border px-6 py-4 rounded-[6px] font-poppins text-sm focus:outline-none focus:ring-1 focus:ring-accent transition-all text-foreground placeholder:text-muted-foreground/50"
+                value={searchQuery}
+                onChange={(e) => setSearchQuery(e.target.value)}
+              />
+            </div>
+          </div>
         </div>
       </div>
 
-      <div className="flex-1 max-w-7xl mx-auto w-full px-6 py-20 flex flex-col md:flex-row gap-16">
+      <div className="flex-1 max-w-7xl mx-auto w-full px-6 py-24 flex flex-col lg:flex-row gap-20">
         {/* Sidebar Filters */}
-        <aside className="w-full md:w-64 space-y-12 flex-shrink-0">
+        <aside className="w-full lg:w-72 space-y-16 flex-shrink-0">
           <FadeIn direction="right" delay={0.1}>
-            <div className="space-y-6">
-              <h3 className="font-oswald text-xs font-bold uppercase tracking-[0.2em] text-[#1d2c48] border-b border-gray-100 pb-4">
+            <div className="space-y-8">
+              <h3 className="font-oswald text-[11px] font-bold uppercase tracking-[0.3em] text-accent border-b border-border pb-6">
                 Refine Search
               </h3>
               <div className="relative">
@@ -120,57 +129,51 @@ function ShopContent() {
                    value={searchQuery}
                    onChange={(e) => setSearchQuery(e.target.value)}
                    placeholder="SEARCH MODEL..." 
-                   className="bg-transparent border-b border-gray-200 border-t-0 border-x-0 rounded-none px-0 h-10 focus-visible:ring-0 focus:border-gold placeholder:text-gray-400 text-xs tracking-widest uppercase font-oswald text-[#1d2c48]" 
+                   className="bg-transparent border-b border-border border-t-0 border-x-0 rounded-none px-0 h-12 focus-visible:ring-0 focus:border-accent placeholder:text-muted-foreground/50 text-xs tracking-widest uppercase font-oswald text-foreground" 
                 />
               </div>
             </div>
 
-            <div className="mt-12 space-y-6">
-              <h3 className="font-oswald text-xs font-bold uppercase tracking-[0.2em] text-[#1d2c48] border-b border-gray-100 pb-4">
+            <div className="mt-16 space-y-8">
+              <h3 className="font-oswald text-[11px] font-bold uppercase tracking-[0.3em] text-accent border-b border-border pb-6">
                 Watch Brands
               </h3>
-              <div className="space-y-4">
+              <div className="flex flex-wrap lg:flex-col gap-3">
                 {brands.map(brand => (
-                  <div key={brand} className="flex items-center space-x-3 group cursor-pointer" onClick={() => toggleBrand(brand)}>
-                    <div className={cn(
-                      "w-4 h-4 border border-gray-200 transition-all duration-300 flex items-center justify-center",
-                      selectedBrands.includes(brand) ? "bg-[#1d2c48] border-[#1d2c48]" : "group-hover:border-gold"
-                    )}>
-                       {selectedBrands.includes(brand) && <div className="w-1.5 h-1.5 bg-gold" />}
-                    </div>
-                    <span className={cn(
-                      "text-[10px] font-bold tracking-widest uppercase transition-colors duration-300",
-                      selectedBrands.includes(brand) ? "text-[#1d2c48]" : "text-gray-500 group-hover:text-gold"
-                    )}>
-                      {brand}
-                    </span>
-                  </div>
+                  <button
+                    key={brand}
+                    onClick={() => toggleBrand(brand)}
+                    className={cn(
+                      "px-4 py-2 text-[10px] font-bold tracking-widest uppercase border transition-all duration-300 rounded-[4px] text-left",
+                      selectedBrands.includes(brand)
+                        ? "bg-accent border-accent text-accent-foreground"
+                        : "bg-card border-border text-muted-foreground hover:border-accent hover:text-foreground"
+                    )}
+                  >
+                    {brand}
+                  </button>
                 ))}
               </div>
             </div>
             
-            <div className="mt-12 space-y-6">
-              <h3 className="font-oswald text-xs font-bold uppercase tracking-[0.2em] text-[#1d2c48] border-b border-gray-100 pb-4">
+            <div className="mt-16 space-y-8">
+              <h3 className="font-oswald text-[11px] font-bold uppercase tracking-[0.3em] text-accent border-b border-border pb-6">
                 Investment
               </h3>
-              <div className="space-y-4">
-                  <div className="flex gap-4 items-center">
-                    <Input 
-                       value={minPrice}
-                       onChange={(e) => setMinPrice(e.target.value)}
-                       placeholder="MIN" 
-                       type="number" 
-                       className="bg-transparent border-gray-100 text-[10px] h-10 tracking-widest font-oswald text-[#1d2c48]" 
-                    />
-                    <span className="text-gray-300">—</span>
-                    <Input 
-                       value={maxPrice}
-                       onChange={(e) => setMaxPrice(e.target.value)}
-                       placeholder="MAX" 
-                       type="number" 
-                       className="bg-transparent border-gray-100 text-[10px] h-10 tracking-widest font-oswald text-[#1d2c48]" 
-                    />
-                  </div>
+              <div className="space-y-8">
+                 <input
+                   type="range"
+                   min="0"
+                   max="20000000"
+                   step="100000"
+                   value={priceRange[1]}
+                   onChange={(e) => setPriceRange([0, parseInt(e.target.value)])}
+                   className="w-full h-1 bg-secondary rounded-lg appearance-none cursor-pointer accent-accent"
+                 />
+                 <div className="flex justify-between font-oswald text-[10px] font-bold text-muted-foreground uppercase tracking-widest">
+                   <span>₱0</span>
+                   <span className="text-foreground">₱{(priceRange[1]/1000000).toFixed(1)}M</span>
+                 </div>
               </div>
             </div>
           </FadeIn>
@@ -179,14 +182,14 @@ function ShopContent() {
         {/* Product Grid */}
         <div className="flex-1">
           <FadeIn delay={0.2}>
-            <div className="mb-12 flex flex-col sm:flex-row items-center justify-between gap-6 border-b border-gray-50 pb-8">
-              <p className="font-poppins text-[10px] font-bold tracking-widest uppercase text-gray-400">
-                Found <span className="text-[#1d2c48]">{filteredAndSortedWatches.length}</span> Masterpieces
+            <div className="mb-16 flex flex-col sm:flex-row items-center justify-between gap-6 border-b border-border pb-10">
+              <p className="font-poppins text-[10px] font-bold tracking-widest uppercase text-muted-foreground">
+                Found <span className="text-foreground">{filteredAndSortedWatches.length}</span> Masterpieces
               </p>
               <select 
                 value={sortBy}
                 onChange={(e) => setSortBy(e.target.value)}
-                className="border-none text-[10px] font-bold tracking-widest uppercase p-2 bg-transparent outline-none cursor-pointer hover:text-gold transition-colors"
+                className="border-none text-[10px] font-bold tracking-widest uppercase p-2 bg-transparent outline-none cursor-pointer hover:text-accent transition-colors"
               >
                 <option value="featured">Featured First</option>
                 <option value="price-asc">Investment: Ascending</option>
@@ -197,7 +200,7 @@ function ShopContent() {
           </FadeIn>
 
           {filteredAndSortedWatches.length > 0 ? (
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-16">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-10 gap-y-16">
               {filteredAndSortedWatches.map((watch, index) => (
                 <FadeIn key={watch.id} delay={0.05 * (index + 1)}>
                   <ProductCard watch={watch} />
@@ -205,12 +208,12 @@ function ShopContent() {
               ))}
             </div>
           ) : (
-             <div className="py-24 text-center border border-dashed border-gray-100 bg-gray-50/50">
-                <p className="font-oswald text-xs font-bold tracking-[0.2em] text-gray-500 uppercase">No watches match your selection</p>
+             <div className="py-32 text-center border border-dashed border-border bg-card rounded-[12px]">
+                <p className="font-oswald text-xs font-bold tracking-[0.2em] text-muted-foreground uppercase">No watches match your selection</p>
                 <Button 
                   variant="link" 
                   onClick={resetFilters}
-                  className="mt-4 text-gold font-oswald text-[10px] font-bold tracking-widest uppercase hover:text-[#1d2c48] underline underline-offset-4"
+                  className="mt-6 text-accent font-oswald text-[10px] font-bold tracking-widest uppercase hover:text-foreground underline underline-offset-4"
                 >
                   Reset Filtering
                 </Button>
@@ -218,9 +221,9 @@ function ShopContent() {
           )}
 
           {filteredAndSortedWatches.length > 0 && (
-             <div className="mt-20 text-center">
-                <Button className="min-w-[240px] bg-[#1d2c48] text-white hover:bg-[#1d2c48]/90 h-14 font-oswald text-[10px] font-bold tracking-[0.2em] uppercase transition-all duration-300">
-                  Load More Timepieces
+             <div className="mt-24 text-center">
+                <Button variant="outline" className="min-w-[280px] h-16 border-border hover:border-accent">
+                  LOAD MORE TIMEPIECES
                 </Button>
              </div>
           )}

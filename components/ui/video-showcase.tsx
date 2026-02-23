@@ -40,36 +40,37 @@ export function VideoShowcase({ videoUrl, thumbnailUrl, title, subtitle, autopla
   }
 
   return (
-    <section className="py-24 px-6 bg-[#1d2c48] overflow-hidden relative">
-      {/* Decorative Gold Accents */}
-      <div className="absolute top-0 left-0 w-full h-1 bg-[#f0ae22]" />
-      <div className="absolute bottom-0 left-0 w-full h-1 bg-[#f0ae22]" />
+    <section className="py-24 px-6 bg-secondary overflow-hidden relative">
+      <div className="absolute inset-0 opacity-[0.03]" 
+           style={{ backgroundImage: 'radial-gradient(white 0.5px, transparent 0.5px)', backgroundSize: '40px 40px' }} />
       
-      <div className="max-w-7xl mx-auto">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+      <div className="max-w-7xl mx-auto relative z-10">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-24 items-center">
           <motion.div 
             initial={{ opacity: 0, x: -20 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
-            className="space-y-8"
+            className="space-y-10"
           >
-            <span className="font-oswald text-[#f0ae22] text-xs font-bold tracking-[0.5em] uppercase block">Product in Action</span>
-            <h2 className="font-oswald text-4xl md:text-6xl font-bold text-white uppercase tracking-tighter leading-none">
-              Witness the <span className="text-[#f0ae22]">Stellar</span> <br /> Experience
-            </h2>
-            <p className="font-poppins text-white/60 text-lg leading-relaxed max-w-xl">
-              From the satisfying click of a bezel to the graceful sweep of a second hand, our content captures the mechanical soul of the world&apos;s finest timepieces.
+            <div className="space-y-4">
+              <span className="font-oswald text-accent text-[10px] font-bold tracking-[0.6em] uppercase block">Horological mastery</span>
+              <h2 className="font-serif text-5xl md:text-7xl text-secondary-foreground tracking-tight leading-none">
+                Witness the <br /> <span className="italic text-accent">Stellar</span> Experience
+              </h2>
+            </div>
+            <p className="font-poppins text-secondary-foreground/40 text-lg leading-relaxed max-w-xl">
+              From the satisfying mechanical click of a vintage bezel to the graceful sweep of a high-complication second hand, our curation captures the very soul of horology.
             </p>
-            <div className="flex items-center gap-6 pt-4">
+            <div className="flex items-center gap-6 pt-6 border-t border-secondary-foreground/5">
               <div className="flex -space-x-4">
                 {[1, 2, 3, 4].map((i) => (
-                  <div key={i} className="w-12 h-12 rounded-full border-2 border-[#1d2c48] bg-gray-700 overflow-hidden">
-                    <div className="w-full h-full bg-gradient-to-br from-gray-600 to-gray-800" />
+                  <div key={i} className="w-12 h-12 rounded-full border-2 border-secondary bg-background overflow-hidden">
+                    <div className="w-full h-full bg-gradient-to-br from-zinc-700 to-zinc-900" />
                   </div>
                 ))}
               </div>
-              <p className="text-white/40 text-xs font-bold uppercase tracking-widest">
-                Join 80K+ Followers
+              <p className="text-secondary-foreground/30 text-[10px] font-bold uppercase tracking-[0.4em]">
+                80,000+ Strong Community
               </p>
             </div>
           </motion.div>
@@ -81,7 +82,7 @@ export function VideoShowcase({ videoUrl, thumbnailUrl, title, subtitle, autopla
             className="relative group cursor-pointer"
             onClick={() => !isPlaying && setIsPlaying(true)}
           >
-            <div className="relative aspect-video bg-black/40 border-2 border-white/5 overflow-hidden shadow-2xl">
+            <div className="relative aspect-video bg-black/40 border border-secondary-foreground/10 overflow-hidden shadow-2xl rounded-[6px]">
               <AnimatePresence mode="wait">
                 {!isPlaying ? (
                   <motion.div
@@ -94,27 +95,27 @@ export function VideoShowcase({ videoUrl, thumbnailUrl, title, subtitle, autopla
                     {thumbnailUrl ? (
                       <img src={thumbnailUrl} alt={title} className="w-full h-full object-cover opacity-60 group-hover:scale-105 transition-transform duration-700" />
                     ) : (
-                      <div className="w-full h-full bg-gradient-to-br from-[#1d2c48] to-black flex items-center justify-center">
-                         <div className="font-oswald text-white/10 text-[10vw] font-black uppercase">Stellar</div>
+                      <div className="w-full h-full bg-gradient-to-br from-zinc-900 to-black flex items-center justify-center">
+                         <div className="font-serif text-white/5 text-[10vw] font-black uppercase tracking-tighter">Stellar</div>
                       </div>
                     )}
                     
                     {/* Play Button Overlay */}
                     <div className="absolute inset-0 flex items-center justify-center">
-                      <div className="w-20 h-20 rounded-full bg-[#f0ae22] text-[#1d2c48] flex items-center justify-center shadow-2xl group-hover:scale-110 transition-transform duration-300">
+                      <div className="w-24 h-24 rounded-full bg-white text-secondary flex items-center justify-center shadow-2xl group-hover:scale-110 group-hover:bg-accent group-hover:text-white transition-all duration-500">
                         <Play className="w-8 h-8 fill-current translate-x-1" />
                       </div>
                     </div>
 
                     {/* Status Bar */}
-                    <div className="absolute bottom-0 left-0 right-0 p-6 bg-gradient-to-t from-black/80 text-white flex justify-between items-end">
-                      <div>
-                        <h4 className="font-oswald text-sm font-bold uppercase tracking-widest">{title}</h4>
-                        <p className="text-[10px] text-white/50 uppercase tracking-wider">{subtitle}</p>
+                    <div className="absolute bottom-0 left-0 right-0 p-8 bg-gradient-to-t from-black/90 to-transparent text-white flex justify-between items-end">
+                      <div className="space-y-1">
+                        <h4 className="font-oswald text-[11px] font-bold uppercase tracking-[0.3em] text-accent">{title}</h4>
+                        <p className="font-serif text-xl tracking-wide">{subtitle}</p>
                       </div>
-                      <div className="flex gap-1">
-                        {[1, 2, 3].map(i => <div key={i} className="w-1 h-3 bg-[#f0ae22] opacity-50" />)}
-                        <div className="w-1 h-3 bg-[#f0ae22] animate-pulse" />
+                      <div className="flex gap-1.5 pb-1">
+                        {[1, 2, 3].map(i => <div key={i} className="w-1 h-4 bg-accent/30" />)}
+                        <div className="w-1 h-4 bg-accent animate-pulse" />
                       </div>
                     </div>
                   </motion.div>
@@ -135,17 +136,13 @@ export function VideoShowcase({ videoUrl, thumbnailUrl, title, subtitle, autopla
                       />
                     ) : (
                       <div className="w-full h-full flex items-center justify-center text-white/20">
-                        Video not available
+                        Content under curation
                       </div>
                     )}
                   </motion.div>
                 )}
               </AnimatePresence>
             </div>
-            
-            {/* Corner Accents */}
-            <div className="absolute -top-2 -left-2 w-10 h-10 border-t-2 border-l-2 border-[#f0ae22] z-30 pointer-events-none" />
-            <div className="absolute -bottom-2 -right-2 w-10 h-10 border-b-2 border-r-2 border-[#f0ae22] z-30 pointer-events-none" />
           </motion.div>
         </div>
       </div>

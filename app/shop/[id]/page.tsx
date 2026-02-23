@@ -10,7 +10,6 @@ import { Button } from "@/components/ui/button"
 import { watches } from "@/lib/data"
 import { toast } from "sonner"
 import { ShieldCheck, Truck, Clock, RefreshCw, Facebook, Instagram } from "lucide-react"
-import { ImagePlaceholder } from "@/components/ui/image-placeholder"
 
 export default function ProductPage() {
   const params = useParams()
@@ -26,151 +25,150 @@ export default function ProductPage() {
     return notFound()
   }
 
-  const handleAddToCart = () => {
+  const addToCart = () => {
     toast.success(`Added ${watch.brand} ${watch.model} to cart`)
   }
 
   return (
-    <div className="min-h-screen bg-white flex flex-col">
+    <div className="min-h-screen bg-background flex flex-col text-foreground">
       <Header />
       
       {/* Page Header / Breadcrumb */}
-      <div className="bg-[#1d2c48] text-white pt-32 pb-16 px-6 relative overflow-hidden">
-        <div className="absolute top-0 right-0 w-1/4 h-full bg-white/5 skew-x-12 transform translate-x-1/2" />
+      <div className="bg-[#000000] text-white pt-48 pb-24 px-6 relative overflow-hidden">
+        <div className="absolute inset-0 opacity-20" 
+             style={{ backgroundImage: 'radial-gradient(#FFFFFF 0.5px, transparent 0.5px)', backgroundSize: '32px 32px' }} />
         <div className="max-w-7xl mx-auto relative z-10">
-          <div className="flex items-center gap-3 text-[10px] uppercase tracking-[0.3em] text-white/40 mb-8">
-            <Link href="/" className="hover:text-gold transition-colors">Home</Link>
-            <span className="w-1 h-1 bg-gold rounded-full" />
-            <Link href="/shop" className="hover:text-gold transition-colors">Shop</Link>
-            <span className="w-1 h-1 bg-gold rounded-full" />
+          <div className="flex items-center gap-3 text-[10px] uppercase tracking-[0.4em] text-white/40 mb-10">
+            <Link href="/" className="hover:text-accent transition-colors">Home</Link>
+            <div className="w-1 h-1 bg-accent rounded-full" />
+            <Link href="/shop" className="hover:text-accent transition-colors">Shop</Link>
+            <div className="w-1 h-1 bg-accent rounded-full" />
             <span className="text-white">{watch.brand}</span>
           </div>
           
-          <h1 className="font-oswald text-4xl md:text-6xl font-bold uppercase tracking-widest leading-none">
-            {watch.brand} <span className="text-gold">{watch.model}</span>
+          <h1 className="font-serif text-5xl md:text-8xl tracking-tight leading-none text-white">
+            {watch.brand} <span className="italic">{watch.model}</span>
           </h1>
         </div>
       </div>
 
-      <div className="flex-1 max-w-7xl mx-auto px-6 py-20 w-full">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-start">
+      <div className="flex-1 max-w-7xl mx-auto px-6 py-24 w-full">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-24 items-start">
           {/* Gallery Section */}
-          <div className="space-y-8">
-            <div className="relative aspect-square w-full bg-[#f9f9f9] border border-gray-100 group">
-              {watch.image ? (
-                <Image
-                  src={watch.image}
-                  alt={`${watch.brand} ${watch.model}`}
-                  fill
-                  className="object-contain p-12"
-                  priority
-                />
-              ) : (
-                <ImagePlaceholder text={watch.brand} iconSize={40} />
-              )}
+          <div className="space-y-10">
+            <div className="relative aspect-square w-full bg-card border border-border rounded-[6px] overflow-hidden group">
+              <Image
+                src={watch.image || "/w1.jpg"}
+                alt={`${watch.brand} ${watch.model}`}
+                fill
+                className="object-contain p-16 transition-transform duration-700 group-hover:scale-105"
+                priority
+              />
             </div>
             
             {/* Thumbnail Grid */}
-            <div className="grid grid-cols-4 gap-4">
+            <div className="grid grid-cols-4 gap-6">
                {[1, 2, 3, 4].map((i) => (
-                 <div key={i} className="aspect-square bg-[#f9f9f9] border border-gray-100 flex items-center justify-center cursor-pointer hover:border-gold transition-all duration-300">
-                    <ImagePlaceholder className="bg-transparent border-none scale-50" text="" iconSize={16} />
+                 <div key={i} className="aspect-square bg-card border border-border rounded-[4px] flex items-center justify-center cursor-pointer hover:border-accent transition-all duration-300 overflow-hidden relative">
+                    <Image
+                      src={watch.image || "/w1.jpg"}
+                      alt={`${watch.brand} thumbnail ${i}`}
+                      fill
+                      className="object-contain p-2 opacity-50 hover:opacity-100 transition-opacity duration-300"
+                    />
                  </div>
                ))}
             </div>
           </div>
 
           {/* Product Info */}
-          <div className="space-y-12">
-            <div className="space-y-6">
+          <div className="space-y-16">
+            <div className="space-y-8">
               <div className="flex items-center gap-4">
-                 <span className="h-px w-8 bg-gold" />
-                 <span className="font-oswald text-xs font-bold tracking-[0.4em] text-gold uppercase">Authentic Luxury</span>
+                 <span className="h-px w-10 bg-accent" />
+                 <span className="font-oswald text-[10px] font-bold tracking-[0.5em] text-accent uppercase">Curated Piece</span>
               </div>
               
-              <div className="space-y-2">
-                <h2 className="text-[#1d2c48] font-oswald text-5xl font-bold uppercase tracking-tight">
+              <div className="space-y-3">
+                <h2 className="text-foreground font-serif text-5xl md:text-6xl tracking-tight">
                   {watch.model}
                 </h2>
-                <p className="text-gray-400 font-poppins text-xs tracking-[0.2em] font-bold uppercase">
-                  Reference: {watch.reference}
+                <p className="text-muted-foreground font-oswald text-[11px] tracking-[0.3em] font-bold uppercase">
+                  Reference No. {watch.reference}
                 </p>
               </div>
             </div>
 
-            <div className="py-8 border-y border-gray-50 space-y-4">
-              <div className="flex items-baseline gap-4">
-                <span className="text-4xl font-oswald font-light text-[#1d2c48]">
-                   {watch.currency === "PHP" ? "₱" : watch.currency}{watch.price.toLocaleString()}
-                </span>
-                <span className="text-[10px] font-bold tracking-widest uppercase text-green-600 bg-green-50 px-3 py-1">
-                   Available for immediate delivery
-                </span>
+            <div className="space-y-10">
+              <div className="space-y-2">
+                <p className="font-oswald text-4xl font-bold text-foreground">
+                  <span className="text-xl align-top mr-2 text-accent">{watch.currency === "PHP" ? "₱" : watch.currency}</span>
+                  {watch.price.toLocaleString()}
+                </p>
+                <div className="flex items-center gap-2 text-[9px] font-bold uppercase tracking-[0.2em] text-accent">
+                   <div className="w-1.5 h-1.5 bg-accent animate-pulse rounded-full" />
+                   Available for Private Viewing
+                </div>
+              </div>
+
+              <div className="flex flex-col sm:flex-row gap-6">
+                <Button size="lg" className="h-16 px-12 text-sm flex-1" onClick={addToCart}>
+                   ACQUIRE THIS PIECE
+                </Button>
+                <Link href="/contact" className="flex-1">
+                  <Button variant="outline" size="lg" className="h-16 w-full text-sm">
+                    INQUIRE NOW
+                  </Button>
+                </Link>
               </div>
             </div>
 
-            <div className="space-y-10">
-               <p className="text-gray-500 font-poppins leading-loose tracking-wide">
-                 {watch.description}
-               </p>
-               
-               <div className="flex flex-col gap-6 w-full">
-                 <a 
-                   href={`https://www.facebook.com/messages/t/61563499544853/?text=${encodeURIComponent(`I'm interested in the ${watch.brand} ${watch.model} (${watch.reference}). Link: ${typeof window !== 'undefined' ? window.location.href : ''}`)}`}
-                   target="_blank"
-                   rel="noopener noreferrer"
-                   className="w-full"
-                 >
-                   <Button size="lg" className="w-full bg-[#1d2c48] text-white hover:bg-gold hover:text-[#1d2c48] h-16 font-oswald text-xs font-bold tracking-[0.3em] uppercase transition-all duration-500 border border-white/10">
-                     Buy this direct to Facebook Page
-                   </Button>
-                 </a>
-                 <Button variant="outline" className="w-full border-[#1d2c48] text-[#1d2c48] hover:bg-[#1d2c48] hover:text-white h-16 font-oswald text-xs font-bold tracking-[0.3em] uppercase transition-all duration-500">
-                   Schedule Viewing
-                 </Button>
-               </div>
+            <p className="text-muted-foreground font-poppins text-lg leading-relaxed max-w-xl">
+              {watch.description}
+            </p>
+            
+            <div className="flex flex-col gap-6 w-full">
+              <a 
+                href={`https://www.facebook.com/messages/t/61563499544853/?text=${encodeURIComponent(`I'm interested in the ${watch.brand} ${watch.model} (${watch.reference}). Link: ${typeof window !== 'undefined' ? window.location.href : ''}`)}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-full"
+              >
+                <Button size="lg" className="w-full h-20 text-xs tracking-[0.4em] uppercase">
+                  Inquire via Facebook messenger
+                </Button>
+              </a>
+              <p className="text-center text-muted-foreground text-[9px] font-oswald uppercase tracking-[0.2em]">Our dedicated concierge will assist you within 24 hours.</p>
             </div>
 
             {/* Trust Badges */}
-            <div className="grid grid-cols-2 gap-y-10 gap-x-6 pt-10">
-               <div className="flex items-center gap-4 group">
-                 <div className="w-12 h-12 border border-black/5 flex items-center justify-center text-gold group-hover:bg-gold group-hover:text-[#1d2c48] transition-all duration-500">
-                   <Truck className="w-5 h-5" />
+            <div className="grid grid-cols-2 gap-8 pt-10 border-t border-border">
+               {[
+                 { icon: <ShieldCheck className="w-5 h-5" />, label: "Lifetime Auth", sub: "Guaranteed Genuine" },
+                 { icon: <Clock className="w-5 h-5" />, label: "Express Send", sub: "Insured Global Shipping" },
+               ].map((badge, idx) => (
+                 <div key={idx} className="flex gap-4 items-center">
+                    <div className="w-10 h-10 rounded-full bg-secondary flex items-center justify-center text-accent">
+                       {badge.icon}
+                    </div>
+                    <div>
+                      <p className="font-oswald text-[10px] font-bold uppercase tracking-wider text-foreground">{badge.label}</p>
+                      <p className="text-[9px] text-muted-foreground uppercase tracking-widest">{badge.sub}</p>
+                    </div>
                  </div>
-                 <div>
-                   <h4 className="font-oswald text-[10px] font-bold text-[#1d2c48] uppercase tracking-widest">Global Shipping</h4>
-                   <p className="text-[10px] text-gray-400 font-poppins uppercase tracking-wider">Fully Insured</p>
-                 </div>
-               </div>
-               <div className="flex items-center gap-4 group">
-                 <div className="w-12 h-12 border border-black/5 flex items-center justify-center text-gold group-hover:bg-gold group-hover:text-[#1d2c48] transition-all duration-500">
-                   <RefreshCw className="w-5 h-5" />
-                 </div>
-                 <div>
-                   <h4 className="font-oswald text-[10px] font-bold text-[#1d2c48] uppercase tracking-widest">Global Returns</h4>
-                   <p className="text-[10px] text-gray-400 font-poppins uppercase tracking-wider">14-Day Window</p>
-                 </div>
-               </div>
-               <div className="flex items-center gap-4 group">
-                 <div className="w-12 h-12 border border-black/5 flex items-center justify-center text-gold group-hover:bg-gold group-hover:text-[#1d2c48] transition-all duration-500">
-                   <Clock className="w-5 h-5" />
-                 </div>
-                 <div>
-                   <h4 className="font-oswald text-[10px] font-bold text-[#1d2c48] uppercase tracking-widest">Service Warranty</h4>
-                   <p className="text-[10px] text-gray-400 font-poppins uppercase tracking-wider">24-Month Coverage</p>
-                 </div>
-               </div>
+               ))}
             </div>
           </div>
         </div>
 
         {/* Technical Specs Table */}
-        <div className="mt-32 max-w-4xl mx-auto">
-           <div className="text-center mb-16 space-y-4">
-             <h3 className="font-oswald text-3xl font-bold text-[#1d2c48] uppercase tracking-widest underline decoration-gold underline-offset-8">Technical Essence</h3>
+        <div className="mt-32 pt-24 border-t border-border">
+           <div className="mb-20">
+             <span className="font-oswald text-accent text-[10px] font-bold tracking-[0.4em] uppercase block mb-4">Mastery</span>
+             <h3 className="font-serif text-4xl md:text-5xl text-foreground tracking-tight">Technical <span className="italic">Essence</span></h3>
            </div>
            
-           <div className="grid grid-cols-1 md:grid-cols-2 gap-x-20 gap-y-6">
+           <div className="grid grid-cols-1 md:grid-cols-2 gap-x-24 gap-y-2">
               {[
                 { label: "Brand", value: watch.brand },
                 { label: "Model", value: watch.model },
@@ -181,14 +179,13 @@ export default function ProductPage() {
                 { label: "Water Resistance", value: watch.specs.waterResistance },
                 { label: "Dial Essence", value: watch.specs.dialColor },
               ].map((spec, i) => (
-                <div key={i} className="flex justify-between items-center py-4 border-b border-gray-50 group hover:border-gold transition-colors duration-500">
-                  <span className="font-oswald text-[10px] font-bold text-[#1d2c48]/50 uppercase tracking-widest group-hover:text-gold transition-colors">{spec.label}</span>
-                  <span className="font-poppins text-xs font-bold text-[#1d2c48] uppercase tracking-wider">{spec.value}</span>
+                <div key={i} className="flex justify-between items-center py-6 border-b border-border group hover:border-accent transition-colors duration-500">
+                  <span className="font-oswald text-[10px] font-bold text-muted-foreground uppercase tracking-widest group-hover:text-accent transition-colors">{spec.label}</span>
+                  <span className="font-poppins text-xs font-bold text-foreground uppercase tracking-wider">{spec.value}</span>
                 </div>
               ))}
            </div>
         </div>
-
       </div>
       <Footer />
     </div>

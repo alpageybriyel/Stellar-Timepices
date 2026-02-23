@@ -53,7 +53,7 @@ export const watches: Watch[] = [
             waterResistance: "120m",
             dialColor: "Blue",
         },
-        image: "",
+        image: "/w1.jpg",
         isFeatured: true,
     },
     {
@@ -71,7 +71,7 @@ export const watches: Watch[] = [
             waterResistance: "50m",
             dialColor: "Black",
         },
-        image: "",
+        image: "/w1.jpg",
         isFeatured: true,
     },
     {
@@ -89,7 +89,7 @@ export const watches: Watch[] = [
             waterResistance: "50m",
             dialColor: "Black",
         },
-        image: "",
+        image: "/w1.jpg",
         isFeatured: true,
     },
     {
@@ -107,7 +107,7 @@ export const watches: Watch[] = [
             waterResistance: "100m",
             dialColor: "White",
         },
-        image: "",
+        image: "/w1.jpg",
         isFeatured: false,
     },
     {
@@ -125,7 +125,7 @@ export const watches: Watch[] = [
             waterResistance: "150m",
             dialColor: "Blue",
         },
-        image: "",
+        image: "/w1.jpg",
         isFeatured: false,
     },
     {
@@ -143,7 +143,7 @@ export const watches: Watch[] = [
             waterResistance: "120m",
             dialColor: "Black Embossed",
         },
-        image: "",
+        image: "/w1.jpg",
         isFeatured: false,
     },
     {
@@ -161,7 +161,7 @@ export const watches: Watch[] = [
             waterResistance: "50m",
             dialColor: "Skeleton",
         },
-        image: "",
+        image: "/w1.jpg",
         isFeatured: true,
     }
 ];

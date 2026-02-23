@@ -14,78 +14,73 @@ export default function ContactPage() {
   }
 
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen bg-background flex flex-col">
       <Header />
       
       {/* Header */}
-      <div className="bg-[#1d2c48] text-white pt-32 pb-16 px-6 text-center">
-        <h1 className="font-oswald text-4xl md:text-5xl font-bold uppercase tracking-widest max-w-4xl mx-auto">
-          Contact Us
-        </h1>
-        <p className="mt-4 text-white/70 font-poppins max-w-xl mx-auto">
-          We are here to assist you with any inquiries regarding our collection or services.
-        </p>
+      <div className="bg-background text-foreground pt-48 pb-24 px-6 relative overflow-hidden text-center">
+        <div className="absolute inset-0 opacity-[0.03]" 
+             style={{ backgroundImage: 'radial-gradient(#111111 0.5px, transparent 0.5px)', backgroundSize: '32px 32px' }} />
+        <div className="relative z-10">
+          <span className="font-oswald text-accent text-[10px] font-bold tracking-[0.5em] uppercase mb-8 block">Get in Touch</span>
+          <h1 className="font-serif text-5xl md:text-8xl tracking-tight leading-none mb-4 text-foreground">
+            Contact <span className="italic">Stellar</span>
+          </h1>
+          <p className="mt-8 text-muted-foreground font-poppins text-lg max-w-xl mx-auto leading-relaxed">
+            We are here to assist you with any inquiries regarding our world-class collection or bespoke services.
+          </p>
+        </div>
       </div>
 
-      <div className="max-w-7xl mx-auto px-6 py-24 grid grid-cols-1 lg:grid-cols-2 gap-16">
+      <div className="max-w-7xl mx-auto px-6 py-32 grid grid-cols-1 lg:grid-cols-2 gap-24">
         
         {/* Contact Info */}
-        <div className="space-y-12">
-          <div className="space-y-6">
-            <h2 className="font-oswald text-2xl font-bold text-[#1d2c48] uppercase">
-              Showroom Information
-            </h2>
-            <div className="w-12 h-1 bg-[#f0ae22]" />
-            <p className="text-[#1d2c48]/70 font-poppins text-sm leading-relaxed">
-              Visit our flagship boutique to experience our collection in person. Appointments are recommended for personalized consultations.
+        <div className="space-y-16">
+          <div className="space-y-8">
+            <div className="space-y-4">
+              <span className="font-oswald text-accent text-[10px] font-bold tracking-[0.4em] uppercase block">Boutique</span>
+              <h2 className="font-serif text-4xl md:text-5xl text-foreground tracking-tight">
+                Showroom <span className="italic">Service</span>
+              </h2>
+            </div>
+            <p className="text-muted-foreground font-poppins text-lg leading-relaxed max-w-md">
+              Visit our flagship sanctuary to experience our collection in person. Appointments are recommended for personalized consultations.
             </p>
           </div>
 
-          <div className="space-y-6">
-            <div className="flex items-start gap-4">
-              <div className="bg-gray-100 p-3">
-                <MapPin className="w-6 h-6 text-[#1d2c48]" />
+          <div className="space-y-8">
+            <div className="flex items-start gap-6 group">
+              <div className="w-12 h-12 border border-border rounded-full flex items-center justify-center text-accent group-hover:bg-accent group-hover:text-accent-foreground transition-all duration-500">
+                <MapPin className="w-5 h-5" />
               </div>
               <div>
-                <h3 className="font-oswald font-bold uppercase text-[#1d2c48] mb-1">Location</h3>
-                <p className="text-[#1d2c48]/70 text-sm font-medium">
+                <h3 className="font-oswald text-[10px] font-bold uppercase tracking-widest text-foreground mb-1">Location</h3>
+                <p className="text-muted-foreground text-sm font-medium leading-relaxed font-poppins">
                   General Trias, Cavite<br />
                   Philippines
                 </p>
               </div>
             </div>
 
-            <div className="flex items-start gap-4">
-              <div className="bg-gray-100 p-3">
-                <Phone className="w-6 h-6 text-[#1d2c48]" />
+            <div className="flex items-start gap-6 group">
+              <div className="w-12 h-12 border border-border rounded-full flex items-center justify-center text-accent group-hover:bg-accent group-hover:text-accent-foreground transition-all duration-500">
+                <Mail className="w-5 h-5" />
               </div>
               <div>
-                <h3 className="font-oswald font-bold uppercase text-[#1d2c48] mb-1">Direct</h3>
-                <p className="text-[#1d2c48]/70 text-sm font-medium">
-                  Message us on Facebook for immediate assistance.
-                </p>
-              </div>
-            </div>
-
-            <div className="flex items-start gap-4">
-              <div className="bg-gray-100 p-3">
-                <Mail className="w-6 h-6 text-[#1d2c48]" />
-              </div>
-              <div>
-                <h3 className="font-oswald font-bold uppercase text-[#1d2c48] mb-1">Inquiries</h3>
-                <p className="text-[#1d2c48]/70 text-sm font-medium">
+                <h3 className="font-oswald text-[10px] font-bold uppercase tracking-widest text-foreground mb-1">Digital</h3>
+                <p className="text-muted-foreground text-sm font-medium leading-relaxed font-poppins">
                   stellartimepieces@gmail.com
                 </p>
               </div>
             </div>
 
-            <div className="flex items-start gap-4">
-              <div className="bg-gray-100 p-3">
-                <Clock className="w-6 h-6 text-[#1d2c48]" />
+            <div className="flex items-start gap-6 group">
+              <div className="w-12 h-12 border border-border rounded-full flex items-center justify-center text-accent group-hover:bg-accent group-hover:text-accent-foreground transition-all duration-500">
+                <Clock className="w-5 h-5" />
               </div>
               <div>
-                <h3 className="font-oswald font-bold uppercase text-[#1d2c48] mb-1">Inquiry Hours</h3>
-                <p className="text-[#1d2c48]/70 text-sm font-medium">
+                <h3 className="font-oswald text-[10px] font-bold uppercase tracking-widest text-foreground mb-1">Inquiry Hours</h3>
+                <p className="text-muted-foreground text-sm font-medium leading-relaxed font-poppins">
                   Mon - Sun: 9:00 AM - 10:00 PM<br />
                   Appointments Recommended
                 </p>
@@ -93,66 +88,60 @@ export default function ContactPage() {
             </div>
           </div>
 
-          <div className="pt-8 space-y-6">
-            <h3 className="font-oswald text-xl font-bold text-[#1d2c48] uppercase">Connect With Us</h3>
+          <div className="pt-12 border-t border-border space-y-8">
+            <h3 className="font-oswald text-[10px] font-bold text-foreground uppercase tracking-widest">Connect Electronically</h3>
             <div className="flex gap-4">
-                <a href="https://www.facebook.com/profile.php?id=61563499544853" target="_blank" rel="noopener noreferrer" className="w-12 h-12 border border-black/5 flex items-center justify-center text-[#1d2c48] hover:text-gold hover:border-gold transition-all duration-300">
+                <a href="https://www.facebook.com/profile.php?id=61563499544853" target="_blank" rel="noopener noreferrer" className="w-14 h-14 border border-border rounded-full flex items-center justify-center text-foreground hover:text-accent hover:border-accent transition-all duration-500">
                     <Facebook className="w-5 h-5" />
                 </a>
-                <a href="https://www.instagram.com/stellartimepieces_/" target="_blank" rel="noopener noreferrer" className="w-12 h-12 border border-black/5 flex items-center justify-center text-[#1d2c48] hover:text-gold hover:border-gold transition-all duration-300">
+                <a href="https://www.instagram.com/stellartimepieces_/" target="_blank" rel="noopener noreferrer" className="w-14 h-14 border border-border rounded-full flex items-center justify-center text-foreground hover:text-accent hover:border-accent transition-all duration-500">
                     <Instagram className="w-5 h-5" />
-                </a>
-                <a href="https://www.tiktok.com/@stellartimepieces" target="_blank" rel="noopener noreferrer" className="w-12 h-12 border border-black/5 flex items-center justify-center text-[#1d2c48] hover:text-gold hover:border-gold transition-all duration-300">
-                    <svg viewBox="0 0 24 24" fill="currentColor" className="w-5 h-5">
-                      <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1.04-.1z" />
-                    </svg>
                 </a>
             </div>
           </div>
         </div>
 
         {/* Contact Form */}
-        <div className="bg-gray-50 border border-gray-200 p-8 md:p-12">
-          <h2 className="font-oswald text-2xl font-bold text-[#1d2c48] uppercase mb-8">
-            Send a Message
-          </h2>
-          <form onSubmit={handleSubmit} className="space-y-6">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              <div className="space-y-2">
-                <label className="text-xs font-bold uppercase text-[#1d2c48]/70 tracking-wider">First Name</label>
-                <Input required className="bg-white" />
+        <div className="bg-card border border-border p-10 md:p-16 rounded-[12px] shadow-sm">
+          <div className="mb-12">
+            <span className="font-oswald text-accent text-[10px] font-bold tracking-[0.4em] uppercase block mb-4">Direct Message</span>
+            <h2 className="font-serif text-3xl font-bold text-foreground tracking-tight">
+              Inquiry <span className="italic">Portal</span>
+            </h2>
+          </div>
+          <form onSubmit={handleSubmit} className="space-y-8">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+              <div className="space-y-3">
+                <label className="text-[10px] font-bold uppercase text-muted-foreground tracking-widest font-oswald">Name</label>
+                <Input required className="bg-muted border-border h-12 rounded-[6px] text-foreground" placeholder="YOUR NAME" />
               </div>
-              <div className="space-y-2">
-                <label className="text-xs font-bold uppercase text-[#1d2c48]/70 tracking-wider">Last Name</label>
-                <Input required className="bg-white" />
+              <div className="space-y-3">
+                <label className="text-[10px] font-bold uppercase text-muted-foreground tracking-widest font-oswald">Email</label>
+                <Input type="email" required className="bg-muted border-border h-12 rounded-[6px] text-foreground" placeholder="YOUR EMAIL" />
               </div>
             </div>
 
-            <div className="space-y-2">
-              <label className="text-xs font-bold uppercase text-[#1d2c48]/70 tracking-wider">Email Address</label>
-              <Input type="email" required className="bg-white" />
-            </div>
-
-            <div className="space-y-2">
-              <label className="text-xs font-bold uppercase text-[#1d2c48]/70 tracking-wider">Subject</label>
-              <select className="flex h-10 w-full rounded-md border border-input bg-white px-3 py-2 text-sm ring-offset-background focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:cursor-not-allowed disabled:opacity-50 text-[#1d2c48]">
+            <div className="space-y-3">
+              <label className="text-[10px] font-bold uppercase text-muted-foreground tracking-widest font-oswald">Subject</label>
+              <select className="flex h-12 w-full rounded-[6px] border border-border bg-muted px-3 py-2 text-sm ring-offset-background focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:cursor-not-allowed disabled:opacity-50 text-foreground font-poppins">
                 <option>General Inquiry</option>
                 <option>Sell Your Watch</option>
-                <option>Service Request</option>
-                <option>Appointment</option>
+                <option>Consignment Request</option>
+                <option>Appointment Request</option>
               </select>
             </div>
 
-            <div className="space-y-2">
-              <label className="text-xs font-bold uppercase text-[#1d2c48]/70 tracking-wider">Message</label>
+            <div className="space-y-3">
+              <label className="text-[10px] font-bold uppercase text-muted-foreground tracking-widest font-oswald">Message</label>
               <textarea 
-                className="flex min-h-[120px] w-full rounded-md border border-input bg-white px-3 py-2 text-sm ring-offset-background placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:cursor-not-allowed disabled:opacity-50 text-[#1d2c48]"
+                className="flex min-h-[160px] w-full rounded-[6px] border border-border bg-muted px-3 py-2 text-sm ring-offset-background placeholder:text-muted-foreground/50 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:cursor-not-allowed disabled:opacity-50 text-foreground font-poppins"
+                placeholder="HOW CAN WE ASSIST YOU?"
                 required
               />
             </div>
 
-            <Button type="submit" variant="gold" className="w-full text-lg h-12 uppercase tracking-wide font-bold">
-              Send Message
+            <Button type="submit" size="lg" className="w-full h-16 uppercase tracking-[0.4em] font-bold">
+              Dispatch Message
             </Button>
           </form>
         </div>
