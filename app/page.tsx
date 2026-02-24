@@ -136,7 +136,7 @@ export default function Home() {
                    Our specialists honor original craftsmanship with uncompromising standards.
                 </p>
                 <div className="pt-6">
-                  <Link href="/about" className="font-oswald text-[10px] font-bold text-foreground border-b border-border pb-1 tracking-[0.4em] uppercase hover:text-accent transition-colors">
+                  <Link href="/about" className="font-oswald text-[10px] font-bold text-secondary-foreground border-b border-border pb-1 tracking-[0.4em] uppercase hover:text-accent transition-colors">
                     Process →
                   </Link>
                 </div>
