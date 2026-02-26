@@ -8,7 +8,6 @@ import { ProductCard } from "@/components/ui/product-card"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { watches } from "@/lib/data"
-import { Checkbox } from "@/components/ui/checkbox"
 import { FadeIn } from "@/components/ui/fade-in"
 import { cn } from "@/lib/utils"
 
@@ -25,7 +24,7 @@ function ShopContent() {
   const brands = Array.from(new Set(watches.map(w => w.brand))).sort()
 
   const filteredAndSortedWatches = React.useMemo(() => {
-    let result = watches.filter(watch => {
+    const result = watches.filter(watch => {
       // Brand Filter
       if (selectedBrands.length > 0 && !selectedBrands.includes(watch.brand)) return false
       

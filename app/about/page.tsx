@@ -1,7 +1,7 @@
 import Image from "next/image"
 import { Header } from "@/components/layout/Header"
 import { Footer } from "@/components/layout/Footer"
-import { Facebook, Instagram, Award, Users, MapPin, Search } from "lucide-react"
+import { Award, Users, MapPin, Search } from "lucide-react"
 import { VideoShowcase } from "@/components/ui/video-showcase"
 import { FadeIn } from "@/components/ui/fade-in"
 

@@ -3,14 +3,13 @@
 import * as React from "react"
 import Link from "next/link"
 import Image from "next/image"
-import { motion, AnimatePresence } from "framer-motion"
+import { motion } from "framer-motion"
 import { Button } from "@/components/ui/button"
 import { ProductCard } from "@/components/ui/product-card"
 import { Header } from "@/components/layout/Header"
 import { Footer } from "@/components/layout/Footer"
 import { FadeIn } from "@/components/ui/fade-in"
 import { watches } from "@/lib/data"
-import { cn } from "@/lib/utils"
 export default function Home() {
   const featuredWatches = watches.filter(w => w.isFeatured)
 

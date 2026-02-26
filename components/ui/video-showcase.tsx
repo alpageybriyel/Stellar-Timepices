@@ -1,6 +1,7 @@
 "use client"
 
-import { useState, useEffect } from "react"
+import { useState } from "react"
+import Image from "next/image"
 import { motion, AnimatePresence } from "framer-motion"
 import { Play } from "lucide-react"
 
@@ -15,11 +16,7 @@ interface VideoShowcaseProps {
 export function VideoShowcase({ videoUrl, thumbnailUrl, title, subtitle, autoplay = false }: VideoShowcaseProps) {
   const [isPlaying, setIsPlaying] = useState(autoplay)
 
-  useEffect(() => {
-    if (autoplay) {
-      setIsPlaying(true)
-    }
-  }, [autoplay])
+
 
   const getEmbedUrl = (url: string) => {
     if (!url) return ""
@@ -93,7 +90,12 @@ export function VideoShowcase({ videoUrl, thumbnailUrl, title, subtitle, autopla
                     className="absolute inset-0 z-10"
                   >
                     {thumbnailUrl ? (
-                      <img src={thumbnailUrl} alt={title} className="w-full h-full object-cover opacity-60 group-hover:scale-105 transition-transform duration-700" />
+                      <Image 
+                        src={thumbnailUrl} 
+                        alt={title} 
+                        fill 
+                        className="w-full h-full object-cover opacity-60 group-hover:scale-105 transition-transform duration-700" 
+                      />
                     ) : (
                       <div className="w-full h-full bg-gradient-to-br from-zinc-900 to-black flex items-center justify-center">
                          <div className="font-serif text-white/5 text-[10vw] font-black uppercase tracking-tighter">Stellar</div>

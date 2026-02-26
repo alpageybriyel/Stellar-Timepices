@@ -3,7 +3,7 @@
 import * as React from "react"
 import Link from "next/link"
 import { usePathname } from "next/navigation"
-import { ShoppingBag, Menu, X, Search, Facebook, Instagram } from "lucide-react"
+import { Menu, X } from "lucide-react"
 import { motion, AnimatePresence } from "framer-motion"
 import { cn } from "@/lib/utils"
 
@@ -21,6 +21,8 @@ export function Header() {
   const pathname = usePathname()
   const [isScrolled, setIsScrolled] = React.useState(false)
   const [isMobileMenuOpen, setIsMobileMenuOpen] = React.useState(false)
+
+  const isDarkBackground = pathname.startsWith("/shop/") && pathname !== "/shop" && !isScrolled && !isMobileMenuOpen;
 
   React.useEffect(() => {
     const handleScroll = () => {
@@ -47,7 +49,10 @@ export function Header() {
             alt="Stellar"
             width={400}
             height={260}
-            className="h-14 md:h-20 w-auto object-contain transition-all duration-500"
+            className={cn(
+              "h-14 md:h-20 w-auto object-contain transition-all duration-500",
+              isDarkBackground && "brightness-0 invert"
+            )}
           />
         </Link>
 
@@ -58,8 +63,10 @@ export function Header() {
               key={item.name}
               href={item.href}
               className={cn(
-                "relative font-oswald text-[10px] font-bold tracking-[0.2em] uppercase transition-all duration-300 hover:text-accent group",
-                pathname === item.href ? "text-accent" : "text-foreground"
+                "relative font-oswald text-[10px] font-bold tracking-[0.2em] uppercase transition-all duration-300 group",
+                pathname === item.href 
+                  ? "text-accent" 
+                  : (isDarkBackground ? "text-white hover:text-accent" : "text-foreground hover:text-accent")
               )}
             >
               {item.name === "Shop" ? "Collections" : item.name}
@@ -74,7 +81,13 @@ export function Header() {
         {/* Actions */}
         <div className="hidden md:flex items-center gap-6">
           <Link href="/contact">
-            <Button size="sm" className="h-10 px-8 text-[10px] tracking-[0.2em]">
+            <Button 
+              size="sm" 
+              className={cn(
+                "h-10 px-8 text-[10px] tracking-[0.2em] transition-all duration-300",
+                isDarkBackground && "bg-white text-black hover:bg-white/90"
+              )}
+            >
               CONTACT
             </Button>
           </Link>
@@ -82,7 +95,10 @@ export function Header() {
 
         {/* Mobile Menu Toggle */}
         <button
-          className="md:hidden z-50 text-foreground p-2"
+          className={cn(
+            "md:hidden z-50 p-2 transition-colors duration-300",
+            isDarkBackground ? "text-white" : "text-foreground"
+          )}
           onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
         >
           {isMobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}

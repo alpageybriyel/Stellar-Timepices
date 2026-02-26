@@ -8,26 +8,19 @@ import { Header } from "@/components/layout/Header"
 import { Footer } from "@/components/layout/Footer"
 import { Button } from "@/components/ui/button"
 import { watches } from "@/lib/data"
-import { toast } from "sonner"
-import { ShieldCheck, Truck, Clock, RefreshCw, Facebook, Instagram } from "lucide-react"
+
+import { ShieldCheck, Clock } from "lucide-react"
 
 export default function ProductPage() {
   const params = useParams()
   const id = Array.isArray(params?.id) ? params?.id[0] : params?.id
   const watch = watches.find(w => w.id === id)
-  const [shareUrl, setShareUrl] = React.useState("")
-
-  React.useEffect(() => {
-    setShareUrl(window.location.href)
-  }, [])
 
   if (!watch) {
     return notFound()
   }
 
-  const addToCart = () => {
-    toast.success(`Added ${watch.brand} ${watch.model} to cart`)
-  }
+
 
   return (
     <div className="min-h-screen bg-background flex flex-col text-foreground">
@@ -112,9 +105,16 @@ export default function ProductPage() {
               </div>
 
               <div className="flex flex-col sm:flex-row gap-6">
-                <Button size="lg" className="h-16 px-12 text-sm flex-1" onClick={addToCart}>
-                   ACQUIRE THIS PIECE
-                </Button>
+                <a 
+                  href={`https://m.me/61563499544853?text=${encodeURIComponent(`https://stellartimepices.vercel.app/shop/${watch.id}`)}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex-1"
+                >
+                  <Button size="lg" className="h-16 w-full px-12 text-sm">
+                    ACQUIRE THIS PIECE
+                  </Button>
+                </a>
                 <Link href="/contact" className="flex-1">
                   <Button variant="outline" size="lg" className="h-16 w-full text-sm">
                     INQUIRE NOW
@@ -129,7 +129,7 @@ export default function ProductPage() {
             
             <div className="flex flex-col gap-6 w-full">
               <a 
-                href={`https://www.facebook.com/messages/t/61563499544853/?text=${encodeURIComponent(`I'm interested in the ${watch.brand} ${watch.model} (${watch.reference}). Link: ${typeof window !== 'undefined' ? window.location.href : ''}`)}`}
+                href={`https://m.me/61563499544853?text=${encodeURIComponent(`https://stellartimepices.vercel.app/shop/${watch.id}`)}`}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-full"

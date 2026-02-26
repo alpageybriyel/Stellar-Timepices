@@ -5,7 +5,7 @@ import { Footer } from "@/components/layout/Footer"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { toast } from "sonner"
-import { MapPin, Phone, Mail, Clock, Facebook, Instagram } from "lucide-react"
+import { MapPin, Mail, Clock, Facebook, Instagram } from "lucide-react"
 
 export default function ContactPage() {
   const handleSubmit = (e: React.FormEvent) => {

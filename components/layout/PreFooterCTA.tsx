@@ -3,7 +3,7 @@
 import Link from "next/link"
 import { motion } from "framer-motion"
 import { Button } from "@/components/ui/button"
-import { Facebook, Instagram, MessageCircle } from "lucide-react"
+
 
 export function PreFooterCTA() {
   return (
@@ -54,7 +54,7 @@ export function PreFooterCTA() {
           </Link>
           
           <a 
-            href="https://www.facebook.com/messages/t/61563499544853" 
+            href="https://m.me/61563499544853" 
             target="_blank" 
             rel="noopener noreferrer"
             className="w-full sm:w-auto"
